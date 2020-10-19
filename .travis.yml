@@ -20,7 +20,8 @@ jobs:
 before_install:
   - phpenv config-rm xdebug.ini
   - cd ../..
-  - composer create-project -n --no-dev --prefer-dist --repository=https://github.com/andrewnicols/moodle-plugin-ci moodlehq/moodle-plugin-ci ci gruntcli_45
+  - git clone https://github.com/andrewnicols/moodle-plugin-ci -b gruntcli_45 ci
+  - cd ci && composer install && cd ..
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
 
 install:
